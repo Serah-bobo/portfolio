@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "id": "ecommerce-platform",
+      "title": "E-Commerce Platform",
+      "description": "A modern shopping experience with real-time inventory",
+      "longDescription": "Built a full-stack e-commerce platform with real-time inventory management, secure payment processing, and an intuitive admin dashboard.",
+      "image": "/images/projects/ecommerce/cover.jpg",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Stripe"],
+      "categories": ["full-stack", "featured"],
+      "featured": true,
+      "liveUrl": "https://project.com",
+      "githubUrl": "https://github.com/username/project",
+      "challenges": [
+        "Real-time inventory across multiple locations",
+        "Complex discount and promotion system",
+        "Mobile-first user experience"
+      ]
+    },
+    {
+      "id": "task-management-app",
+      "title": "TaskFlow - Project Management",
+      "description": "Collaborative task management with real-time updates",
+      "longDescription": "A Trello-like application with drag-drop interfaces, real-time collaboration, and team analytics.",
+      "image": "/images/projects/taskflow/cover.jpg",
+      "technologies": ["React", "TypeScript", "Socket.io", "MongoDB"],
+      "categories": ["full-stack", "featured"],
+      "featured": true,
+      "liveUrl": "https://project.com",
+      "githubUrl": "https://github.com/username/project",
+      "challenges": [
+        "Real-time synchronization",
+        "Drag-drop interface",
+        "Offline support"
+      ]
+    },
+    {
+      "id": "weather-dashboard",
+      "title": "Weather Dashboard",
+      "description": "Beautiful weather app with interactive maps",
+      "longDescription": "A weather application with 7-day forecasts, interactive radar maps, and location-based alerts.",
+      "image": "/images/projects/weather/cover.jpg",
+      "technologies": ["React", "D3.js", "OpenWeather API", "Tailwind"],
+      "categories": ["frontend", "featured"],
+      "featured": true,
+      "liveUrl": "https://project.com",
+      "githubUrl": "https://github.com/username/project",
+      "challenges": [
+        "Data visualization with D3",
+        "API rate limiting",
+        "Geolocation integration"
+      ]
+    }
+  ]
+}

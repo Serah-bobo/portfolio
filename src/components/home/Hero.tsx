@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Button from '../shared/Button';
 import Container from '../shared/Container';
 import { Variants } from "framer-motion";
-import SocialIcons from '../shared/SocialIcons';
 
 // Animation variants
 const containerVariants = {
@@ -85,8 +84,9 @@ const Hero = () => {
                     animate="visible"
                     className="relative z-10 text-center md:text-left md:flex md:items-center md:justify-between gap-12"
                 >
-                    {/* Left Content */}
+                    {/* Left Content - Main Message */}
                     <div className="flex-1">
+                        {/* Greeting */}
                         <motion.p
                             variants={itemVariants}
                             className="text-body-lg text-[rgb(var(--text-secondary))] mb-4"
@@ -94,7 +94,7 @@ const Hero = () => {
                             👋 Hi, I'm
                         </motion.p>
 
-                        {/* Name */}
+                        {/* Name - More prominent */}
                         <motion.h1
                             variants={itemVariants}
                             className="text-display-lg md:text-display-xl lg:text-display-2xl font-bold mb-4"
@@ -111,36 +111,22 @@ const Hero = () => {
                             <span className="animate-pulse">|</span>
                         </motion.div>
 
-                        {/* Description */}
+                        {/* Description - More impactful */}
                         <motion.p
                             variants={itemVariants}
                             className="text-body-lg text-[rgb(var(--text-secondary))] max-w-2xl mb-8"
                         >
-                            I build full-stack applications that solve real problems.
-                            Specializing in React, TypeScript, and Node.js with a focus
-                            on performance and user experience.
+                            I transform complex problems into elegant, performant web applications. 
+                            With a focus on user experience and clean code, I build solutions that make a difference.
                         </motion.p>
 
-                        {/* CTA Buttons */}
+                        {/* Single Primary CTA - Just "Let's Talk" */}
                         <motion.div
                             variants={itemVariants}
-                            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                            className="flex justify-center md:justify-start"
                         >
                             <Button
                                 size="lg"
-                                href="/projects"
-                                icon={
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                }
-                            >
-                                View Projects
-                            </Button>
-
-                            <Button
-                                size="lg"
-                                variant="outline"
                                 href="/contact"
                                 icon={
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,30 +134,72 @@ const Hero = () => {
                                     </svg>
                                 }
                             >
-                                Contact Me
+                                Let's Talk
                             </Button>
                         </motion.div>
-
-                        {/* Social Links */}
-                        <SocialIcons />
                     </div>
 
-                    {/* Right Content - 3D  */}
+                    {/* Right Content - 3D Element (Now has purpose) */}
                     <motion.div
                         variants={itemVariants}
                         className="flex-1 hidden md:block"
                     >
                         <div className="relative w-full h-[400px]">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[rgb(var(--accent-primary))] to-[rgb(var(--accent-secondary))] rounded-2xl opacity-20" />
+                            {/* Animated tech stack visualization */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-[rgb(var(--text-secondary))]">✨ 3D Element Coming Soon ✨</span>
+                                <div className="relative w-64 h-64">
+                                    {/* Rotating tech circles */}
+                                    {['React', 'TypeScript', 'Node.js', 'Python'].map((tech, i) => (
+                                        <motion.div
+                                            key={tech}
+                                            className="absolute w-20 h-20 bg-[rgb(var(--bg-card))] rounded-xl shadow-custom-lg border border-[rgb(var(--border-light))] flex items-center justify-center text-body-sm font-medium"
+                                            initial={{ 
+                                                x: 0, 
+                                                y: 0,
+                                                rotate: 0,
+                                                scale: 0
+                                            }}
+                                            animate={{ 
+                                                scale: 1,
+                                                x: Math.cos(i * Math.PI/2) * 100,
+                                                y: Math.sin(i * Math.PI/2) * 100,
+                                                rotate: 360
+                                            }}
+                                            transition={{
+                                                duration: 1,
+                                                delay: i * 0.2,
+                                                rotate: {
+                                                    duration: 20,
+                                                    repeat: Infinity,
+                                                    ease: "linear"
+                                                }
+                                            }}
+                                        >
+                                            <span className="text-[rgb(var(--text-primary))]">{tech}</span>
+                                        </motion.div>
+                                    ))}
+                                    
+                                    {/* Center circle */}
+                                    <motion.div
+                                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-[rgb(var(--accent-primary))] rounded-full flex items-center justify-center text-white font-bold"
+                                        animate={{
+                                            scale: [1, 1.1, 1],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            repeat: Infinity,
+                                        }}
+                                    >
+                                        <span>3+ yrs</span>
+                                    </motion.div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
                 </motion.div>
             </Container>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - Simplified */}
             <motion.button
                 onClick={scrollToNext}
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer group"
@@ -182,45 +210,14 @@ const Hero = () => {
                 whileTap={{ scale: 0.9 }}
                 aria-label="Scroll down"
             >
-                <div className="flex flex-col items-center gap-2">
-                    <span className="text-body-sm text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--accent-primary))] transition-colors">
-                    </span>
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5 }}
-                        className="w-6 h-10 border-2 border-[rgb(var(--text-secondary))] rounded-full flex justify-center"
-                    >
-                        <motion.div className="w-1 h-2 bg-[rgb(var(--accent-primary))] rounded-full mt-2" />
-                    </motion.div>
-                </div>
+                <motion.div
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                    className="w-6 h-10 border-2 border-[rgb(var(--text-secondary))] rounded-full flex justify-center"
+                >
+                    <motion.div className="w-1 h-2 bg-[rgb(var(--accent-primary))] rounded-full mt-2" />
+                </motion.div>
             </motion.button>
-
-            <motion.div
-                className="absolute top-20 left-10 w-20 h-20 border border-[rgb(var(--accent-primary))] rounded-lg opacity-20"
-                animate={{
-                    rotate: 360,
-                    scale: [1, 1.2, 1],
-                }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear"
-                }}
-            />
-
-            <motion.div
-                className="absolute bottom-20 right-10 w-32 h-32 bg-[rgb(var(--accent-primary))] rounded-full opacity-10"
-                animate={{
-                    scale: [1, 1.5, 1],
-                    x: [0, 20, 0],
-                    y: [0, -20, 0],
-                }}
-                transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear"
-                }}
-            />
         </section>
     );
 };
