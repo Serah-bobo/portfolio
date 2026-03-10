@@ -1,0 +1,26 @@
+{
+  "site": {
+    "title": "Your Name - Full Stack Developer",
+    "description": "Full Stack Developer specializing in React, TypeScript, and Node.js",
+    "url": "https://yourdomain.com",
+    "image": "/og-image.jpg"
+  },
+  "author": {
+    "name": "Your Name",
+    "email": "your@email.com",
+    "location": "City, Country",
+    "availability": "Open to work",
+    "resume": "/resume.pdf"
+  },
+  "social": {
+    "github": "https://github.com/username",
+    "linkedin": "https://linkedin.com/in/username",
+    "twitter": "https://twitter.com/username"
+  },
+  "navigation": [
+    { "label": "Home", "path": "/" },
+    { "label": "Projects", "path": "/projects" },
+    { "label": "About", "path": "/about" },
+    { "label": "Contact", "path": "/contact" }
+  ]
+}
