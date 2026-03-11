@@ -1,17 +1,20 @@
+// HomePage.tsx
 import Hero from '../components/home/Hero';
-import QuickIntro from '../components/home/QuickIntro';
+import About from '../components/home/About';
 import FeaturedProjects from '../components/home/FeaturedProjects';
+import Skills from '../components/home/Skills';
+import Experience from '../components/home/Experience';
+import Contact from '../components/home/Contact';
+
 const HomePage = () => {
   return (
     <div>
-      <Hero />
-      <QuickIntro />
-      <FeaturedProjects />
-      <section className="h-screen bg-[rgb(var(--bg-secondary))] flex items-center justify-center">
-        <p className="text-display-sm text-[rgb(var(--text-secondary))]">
-          More content below the fold...
-        </p>
-      </section>
+      <section id="hero"><Hero /></section>
+      <section id="about"><About /></section>
+      <section id="projects"><FeaturedProjects /></section>
+      <section id="skills"><Skills /></section>
+      <section id="experience"><Experience /></section>
+      <section id="contact"><Contact /></section>
     </div>
   );
 };
